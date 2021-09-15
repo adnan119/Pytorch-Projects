@@ -95,3 +95,9 @@ def ResNet101(image_channels=3, num_classes=1000):
 
 def ResNet152(image_channels=3, num_classes=1000):
     return ResNet(block, [3,8,36,3], image_channels, num_classes)
+
+def test():
+    net = ResNet152()
+    x = torch.randn(2, 3, 224, 224)
+    y = net(x).cuda()
+    print(y.shape)
